@@ -73,7 +73,7 @@ export const projectsData = [
     ],
     techStack: ["Nodejs","React", "Redux Toolkit", "Express", "MongoDB"],
     github: "https://github.com/2820007/Grocery-app",
-    demo: "https://grocery-ecommerce-demo.vercel.app",
+    demo: "https://grocery-app-git-main-ravi-mandals-projects.vercel.app/",
     featured: false,
   },
   {
