@@ -55,7 +55,7 @@ export default function App() {
         </a>
         <AnimatePresence>{loading && <Loader />}</AnimatePresence>
         {!loading && (
-          <>
+          <ErrorBoundary>
             <CustomCursor />
             <ScrollProgressBar />
             <Navbar />
@@ -66,7 +66,7 @@ export default function App() {
             </main>
             <Footer />
             <BackToTop />
-          </>
+          </ErrorBoundary>
         )}
       </BrowserRouter>
     </ThemeProvider>

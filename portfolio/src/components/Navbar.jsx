@@ -2,8 +2,7 @@ import { useEffect, useState } from "react";
 import { Link as ScrollLink } from "react-scroll";
 import { Link as RouterLink, useLocation, useNavigate } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
-import { FiSun, FiMoon, FiMenu, FiX } from "react-icons/fi";
-import { useTheme } from "../context/ThemeContext";
+import { FiMenu, FiX } from "react-icons/fi";
 import { useActiveSection } from "../hooks/useActiveSection";
 import { personalData } from "../data/personalData";
 
@@ -19,7 +18,6 @@ const navItems = [
 ];
 
 export default function Navbar() {
-  const { theme, toggleTheme } = useTheme();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const active = useActiveSection(navItems.map((n) => n.id));

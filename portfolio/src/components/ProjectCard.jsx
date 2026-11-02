@@ -3,11 +3,13 @@
 
 
 
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 import GlassCard from "./GlassCard";
 
 export default function ProjectCard({ project }) {
+  const [imageFailed, setImageFailed] = useState(false);
   return (
     <motion.div
       layout
@@ -20,11 +22,22 @@ export default function ProjectCard({ project }) {
       <GlassCard className="h-full flex flex-col overflow-hidden p-0 rounded-2xl group">
         {/* Project Image — Vercel-style: full-bleed, fixed aspect ratio */}
         <div className="relative w-full aspect-video overflow-hidden bg-slate-900">
-          <img
-            src={project.image}
-            alt={project.title}
-            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-          />
+          {project.image && !imageFailed ? (
+            <img
+              src={project.image}
+              alt={`${project.title} preview`}
+              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              onError={() => setImageFailed(true)}
+            />
+          ) : (
+            <div
+              className="w-full h-full flex items-center justify-center bg-gradient-to-br from-primary/30 via-slate-800 to-secondary/30 p-6 text-center"
+              role="img"
+              aria-label={`${project.title} preview unavailable`}
+            >
+              <span className="font-poppins text-xl font-bold text-white/90">{project.title}</span>
+            </div>
+          )}
           {/* subtle gradient so a light badge/text always stays readable */}
           <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
 

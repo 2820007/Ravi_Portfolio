@@ -2,9 +2,9 @@ export const experienceData = [
   {
     id: 1,
     role: "Full Stack Developer",
-    company: "TechNova Solutions",
-    duration: "Jan 2024 — Present",
-    location: "Bengaluru, India (Hybrid)",
+    company: "BackendX Technology pvt.ltd",
+    duration: "Sep 2026 — Present",
+    location: "Birgunj, Nepal (On-site)",
     points: [
       "Led development of a MERN-based job portal serving 10K+ monthly active users.",
       "Optimized REST APIs, reducing average response time by 40%.",
@@ -13,9 +13,9 @@ export const experienceData = [
   },
   {
     id: 2,
-    role: "Frontend Developer",
-    company: "PixelForge Labs",
-    duration: "Jun 2022 — Dec 2023",
+    role: "Mern  Developer",
+    company: "OpenBlockAI ",
+    duration: "April 2023 — sep 2023",
     location: "Remote",
     points: [
       "Built responsive UI components using React and Tailwind CSS for 8+ client projects.",

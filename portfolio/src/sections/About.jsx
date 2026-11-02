@@ -1,4 +1,3 @@
-import CountUp from "react-countup";
 import { FaCode, FaLightbulb, FaUsers } from "react-icons/fa";
 import SectionHeading from "../components/SectionHeading";
 import RevealOnScroll from "../components/RevealOnScroll";

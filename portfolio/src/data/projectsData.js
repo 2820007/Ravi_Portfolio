@@ -80,7 +80,7 @@ export const projectsData = [
     id: 5,
     title: "Airbnb Clone",
     category: "Full Stack",
-    image: "airbnb",
+    image: null,
     description:
       "A pixel-perfect Airbnb clone featuring property listings, map-based search, booking calendar, and host dashboards.",
     features: [
@@ -100,7 +100,7 @@ export const projectsData = [
     id: 6,
     title: "Learning Management System",
     category: "Full Stack",
-    image: "lms",
+    image: null,
     description:
       "A scalable LMS platform for course creation, video lessons, quizzes, and student progress tracking.",
     features: [
