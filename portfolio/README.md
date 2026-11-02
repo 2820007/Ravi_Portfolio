@@ -36,15 +36,13 @@ Edit `src/data/personalData.js`, `src/data/projectsData.js`, `src/data/skillsDat
 Replace `public/resume-ravi-kumar.pdf` with your real resume (same filename, or update the path in `src/data/personalData.js` → `resumeUrl`).
 
 ### 3. EmailJS (Contact Form)
-1. Create a free account at emailjs.com
-2. Create an Email Service and an Email Template
-3. Open `src/sections/Contact.jsx` and replace:
-   ```js
-   const EMAILJS_SERVICE_ID = "YOUR_SERVICE_ID";
-   const EMAILJS_TEMPLATE_ID = "YOUR_TEMPLATE_ID";
-   const EMAILJS_PUBLIC_KEY = "YOUR_PUBLIC_KEY";
-   ```
-   with your actual EmailJS credentials. Until then, the form runs in a simulated "demo send" mode so it's fully testable.
+The contact form sends messages through EmailJS. To receive submissions at `mandalravi952@gmail.com`:
+
+1. Create an account at [emailjs.com](https://www.emailjs.com/) and connect the email service you want to send through.
+2. Create an EmailJS template. Set its **To Email** to `mandalravi952@gmail.com`. Use `{{from_name}}`, `{{from_email}}`, `{{subject}}`, and `{{message}}` in the template body. Set **Reply To** to `{{reply_to}}` so you can reply directly to the sender.
+3. Copy `.env.example` to `.env.local` and fill in the Service ID, Template ID, and Public Key from EmailJS. Restart the dev server after changing environment variables.
+
+The form only shows a success message after EmailJS confirms the send. Without valid EmailJS credentials, it shows an error rather than pretending the message was delivered.
 
 ### 4. GitHub Stats
 In `src/sections/GithubStats.jsx`, update:

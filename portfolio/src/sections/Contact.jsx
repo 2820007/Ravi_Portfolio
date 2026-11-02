@@ -9,9 +9,9 @@ import Button from "../components/Button";
 import { personalData } from "../data/personalData";
 import { slideInLeft, slideInRight } from "../animations/variants";
 
-const EMAILJS_SERVICE_ID = "YOUR_SERVICE_ID";
-const EMAILJS_TEMPLATE_ID = "YOUR_TEMPLATE_ID";
-const EMAILJS_PUBLIC_KEY = "YOUR_PUBLIC_KEY";
+const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
 function validate(values) {
   const errors = {};
@@ -49,21 +49,22 @@ export default function Contact() {
 
     setStatus("sending");
     try {
-      if (EMAILJS_SERVICE_ID !== "YOUR_SERVICE_ID") {
-        await emailjs.send(
-          EMAILJS_SERVICE_ID,
-          EMAILJS_TEMPLATE_ID,
-          {
-            from_name: values.name,
-            from_email: values.email,
-            subject: values.subject,
-            message: values.message,
-          },
-          EMAILJS_PUBLIC_KEY
-        );
-      } else {
-        await new Promise((resolve) => setTimeout(resolve, 1200));
+      if (!EMAILJS_SERVICE_ID || !EMAILJS_TEMPLATE_ID || !EMAILJS_PUBLIC_KEY) {
+        throw new Error("EmailJS is not configured. Set the VITE_EMAILJS_* environment variables.");
       }
+
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        {
+          from_name: values.name,
+          from_email: values.email,
+          reply_to: values.email,
+          subject: values.subject,
+          message: values.message,
+        },
+        EMAILJS_PUBLIC_KEY
+      );
       setStatus("success");
       setValues({ name: "", email: "", subject: "", message: "" });
       setTimeout(() => setStatus("idle"), 4000);

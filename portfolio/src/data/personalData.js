@@ -11,7 +11,7 @@ export const personalData = {
     "Building scalable, responsive, and modern web applications with React, Node.js, Express, MongoDB, and PostgreSQL.",
   objective:
     "Passionate MERN Stack Developer focused on building scalable, user-friendly, and performant web applications. Seeking opportunities to contribute to innovative teams while continuously improving my technical expertise.",
-  email: "ravikumar.dev@example.com",
+  email: "mandalravi952@gmail.com",
   phone: "+977 9763345750",
   location: "Kathmandu, Nepal",
   resumeUrl: "/RaviResume.pdf",
